@@ -5437,7 +5437,7 @@ static int clusterManagerCommandMoveSlot(int argc, char **argv) {
         return 0;
     }
 
-    int opts = CLUSTER_MANAGER_OPT_VERBOSE;
+    int opts = CLUSTER_MANAGER_OPT_VERBOSE | CLUSTER_MANAGER_OPT_UPDATE;
     char *err = NULL;
     int result = clusterManagerMoveSlot(fromnode, tonode, slotNo,
                                     opts, &err);
@@ -5451,7 +5451,7 @@ static int clusterManagerCommandMoveSlot(int argc, char **argv) {
     }
     
 
-    return 0;
+    return result;
 
 invalid_args:
     fprintf(stderr, CLUSTER_MANAGER_INVALID_HOST_ARG);
